@@ -4,7 +4,7 @@
 ## 获取记录列表
 > GET: /api/record
 ### 返回示例
-```
+```json
 {
     "msg": "record list",
     "data": [
@@ -45,7 +45,7 @@ desc   | 否 | String| 描述
 cate | 是 | Array | 类目
 create_time | 是 | Int | 时间戳(秒)
 ### 请求示例
-```
+```json
 {
 	"amount":10,
 	"desc":"breakfast",
