@@ -17,6 +17,7 @@ const models = {
   record: {
     amount: { type: Number, require: true },
     desc: String,
+    cate: { type: Array, require: true },
     type1: String,
     type2: String,
     create_time: { type: Number, require: true },
