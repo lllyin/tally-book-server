@@ -9,7 +9,7 @@ const recordRouter = new Router({
 
 // GET:record list
 recordRouter.get('/record', async (ctx, next) => {
-  const articleList = await RecordModel.find({});  
+  const articleList = await RecordModel.find({});
   ctx.body = {
     msg: 'record list',
     data: articleList,
@@ -46,9 +46,16 @@ recordRouter.post('/record', async (ctx, next) => {
 });
 
 // DELETE: delete article
-recordRouter.delete('/record', async (ctx, next) => {
-  const { ids } = ctx.request.body;
-  const res = await RecordModel.remove({ _id: { $in: ids } });
+recordRouter.delete('/record/:id', async (ctx, next) => {
+  const { id } = ctx.params;
+  console.log("---delete:", id)
+  let res = "";
+  if (id) {
+    res = await RecordModel.remove({ _id: id });
+  } else {
+    const { ids } = ctx.request.body;
+    res = await RecordModel.remove({ _id: { $in: ids } });
+  }
   ctx.body = {
     msg: 'delete record',
     data: res,
@@ -58,8 +65,8 @@ recordRouter.delete('/record', async (ctx, next) => {
 
 // PUT: change article
 recordRouter.put('/record/:id', async (ctx, next) => {
-  const reqBody = ctx.request.body;   
-  const { id } = ctx.params;  
+  const reqBody = ctx.request.body;
+  const { id } = ctx.params;
   console.log('--', id, reqBody);
   const res = await RecordModel.update({ _id: id }, reqBody);
   ctx.body = {
