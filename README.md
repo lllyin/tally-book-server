@@ -37,13 +37,14 @@
 
 ## 新增记录
 > POST:  /api/record
-### 请求示例
+### 请求参数
  参数名| 必选| 类型| 说明 
  :---:|:---:|:---:|:---| 
 amount | 是 | float | 金额
 desc   | 否 | String| 描述
 cate | 是 | Array | 类目
 create_time | 是 | Int | 时间戳(秒)
+### 请求示例
 ```
 {
 	"amount":10,
