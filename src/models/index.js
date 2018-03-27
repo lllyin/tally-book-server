@@ -20,7 +20,9 @@ const models = {
     cate: { type: Array, require: true },
     type1: String,
     type2: String,
-    create_time: { type: Number, require: true },
+    openid:{type:String,require:true},
+    unionid:{type:String,require:false},
+    create_time: { type: Number, require: true }
   },
   user: {
     name: { type: String, require: true },
